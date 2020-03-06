@@ -13,3 +13,4 @@ To utilize this script, please follow the below workflow:
 (3) Run the script: **./insertionSort.sh**.
 
 See below an image of the script in action:
+![Image of insertionSort](https://github.com/markusewalker/bash_scripts/blob/master/insertion-sort/insertionSort.png)
