@@ -17,12 +17,17 @@ To utilize this script, please follow the below workflow:
 
 See below images of the script in action:
 
-*Downloading Tomcat*
+*Downloading Tomcat*\
+![Downloading Tomcat](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/downloadingTomcat.jpg)
 
-*Extracting Tomcat*
+*Extracting Tomcat*\
+![Extracting Tomcat](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/extractTomcat.jpg)
 
-*Removing downloaded file*
+*Removing downloaded file*\
+![Removing Downloaded file](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/removeTomcat.jpg)
 
-*Enabling Tomcat Manager*
+*Enabling Tomcat Manager*\
+![Enabling Tomcat Manager](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/enableManager.jpg)
 
-*Substitue ports*
+*Substitue ports*\
+![Substitue Ports](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/substiutePorts.jpg)
