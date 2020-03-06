@@ -14,5 +14,7 @@ To utilize this script, please follow the below workflow:
 See below an image of the script in action:
 
 *Backup Tool*
+![Image of Backup Running](https://github.com/markusewalker/bash_scripts/blob/master/backup-system/runBackup.png)
 
 *Result of completed Backup Tool*
+![Image of Backup Completed](https://github.com/markusewalker/bash_scripts/blob/master/backup-system/backup.png)
