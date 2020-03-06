@@ -13,7 +13,7 @@ To utilize this program, please follow the below workflow:
 (3) Once the build is successful, run the project.
 
 See below the program in action in Eclipse on Windows:
-
+![Windows Video Game Characters](https://github.com/markusewalker/bash_scripts/blob/master/video-game-characters/WindowsVideoGameCharacters.png)
 
 More information on this program is included in the README of the compressed folder.
 
@@ -26,6 +26,6 @@ To utilize this program, please follow the below workflow:
 (3) Run the script: **./VideoGameCharacters.sh**.
 
 See below the program in action in Linux:
-
+![Linux Video Game Characters](https://github.com/markusewalker/bash_scripts/blob/master/video-game-characters/linuxVideoGameCharacters.png)
 
 More information on this program is included in the README of the compressed folder.
