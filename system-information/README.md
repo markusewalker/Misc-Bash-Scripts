@@ -14,3 +14,4 @@ To utilize this script, please follow the below workflow:
 (3) Run the script: **./sys_info.sh**.
 
 See below an image of the script in action:
+![Image of System Information](https://github.com/markusewalker/bash_scripts/blob/master/system-information/sys_info.png)
