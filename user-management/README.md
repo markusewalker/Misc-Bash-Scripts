@@ -13,4 +13,4 @@ To utilize this script, please perform the following:
 (3) Run the script: ./user-management.sh. You must be the root user or have sudo privileges to run this script!
 
 ### Example
-![User Management Script Example](https://github.com/markusewalker/bash_scripts/blob/user-management/user-management/example.png)
+![User Management Script Example](https://github.com/markusewalker/bash_scripts/blob/master/user-management/example.png)
