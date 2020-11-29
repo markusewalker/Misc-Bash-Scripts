@@ -82,7 +82,6 @@ addGroup() {
 	then
 		"${USER} will not be added to ${GROUP} at this time."
 	fi
-
 }
 
 # Function to delete a group.
