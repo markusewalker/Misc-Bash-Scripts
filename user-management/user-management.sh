@@ -99,7 +99,7 @@ delGroup() {
 
 usage() {
 	cat << EOF
-This script performs basic user group and sysadmin tasks. The options are shownbelow:
+This script performs basic user group and sysadmin tasks. The options are shown below:
 
 	- Adding Members
 	- Deleting Members
@@ -117,7 +117,7 @@ while getopts ":h" opt; do
                         exit 0
                         ;;
                 *)
-			echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 1>&2
+			echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 2>&1
                         exit 1
                         ;;
         esac
