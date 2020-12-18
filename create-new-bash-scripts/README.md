@@ -7,9 +7,9 @@ Bash script to create new scripts to make them executable upon initial creation.
 To utilize this script, please follow the below workflow:
 
 (1) Clone the script into your environment.\
-(2) Make sure the script is executable using the command **"chmod +x newScripts.sh"**.\
-(3) Run the script: **./newScripts.sh**.
+(2) Make sure the script is executable using the command **"chmod +x new-scripts.sh"**.\
+(3) Run the script: **./new-scripts.sh**.
 
-See below an image of **newScripts.sh** in action:
+See below an image of **new-scripts.sh** in action:
 
-![Image of New Scripts](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/create-new-bash-scripts/newScripts.jpg)
+![Image of New Scripts](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/create-new-bash-scripts/newScripts.png)
