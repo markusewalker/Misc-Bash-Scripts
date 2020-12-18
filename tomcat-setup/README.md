@@ -1,33 +1,28 @@
 # Tomcat Setup
-DESCRIPTION
--
-Bash script to download various Tomcat versions on various Linux distros. Inspired to be utilized with the ArcGIS Enterprise stack and Tomcat versions 8.5.23, 8.0.48, 7.0.82. As the ArcGIS Web Adaptor lists these versions in the system requirements, these versions in particular are used.
 
-The Tomcat Setup utilizes functions to perform the following actions: download Tomcat, extract Tomcat, remove the compressed folder, enable Tomcat Manager, substitue ports 8080 and 8443 with ports 80 and 443, respectiviely in the server.xml file.
+### Description
+Bash script to download and setup Tomcat. The Tomcat Setup utilizes functions to perform the following actions: download Tomcat, extract Tomcat, remove the compressed folder, enable Tomcat Manager, substitue ports 8080 and 8443 with ports 80 and 443, respectiviely in the server.xml file.
 
-This script was developed on developed on Ubuntu 16.04LTS and tested with. Ubuntu 16.04 &18.04, RHEL 7.5 & 7.6. Although this script has not been tested on other distros, little to no changes should be made necessary to the script.
-
-GETTING STARTED
--
+### Getting Started
 To utilize this script, please follow the below workflow:
 
 (1) Clone the script into your environment.\
-(2) Make sure the script is executable using the command **"chmod +x setupTomcat.sh"**.\
-(3) Run the script: **./setupTomcat.sh.**
+(2) Make sure the script is executable using the command **"chmod +x setup-tomcat.sh"**.\
+(3) Run the script: **./setup-tomcat.sh.**
 
 See below images of the script in action:
 
 *Downloading Tomcat*\
-![Downloading Tomcat](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/downloadingTomcat.jpg)
+![Downloading Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/downloadingTomcat.png)
 
 *Extracting Tomcat*\
-![Extracting Tomcat](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/extractTomcat.jpg)
+![Extracting Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/extractTomcat.jpg)
 
 *Removing downloaded file*\
-![Removing Downloaded file](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/removeTomcat.jpg)
+![Removing Downloaded file](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/removeTomcat.jpg)
 
 *Enabling Tomcat Manager*\
-![Enabling Tomcat Manager](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/enableManager.jpg)
+![Enabling Tomcat Manager](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/enableManager.jpg)
 
 *Substitue ports*\
-![Substitue Ports](https://github.com/markusewalker/bash_scripts/blob/master/tomcat-setup/substiutePorts.jpg)
+![Substitue Ports](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/substiutePorts.jpg)

@@ -2,13 +2,13 @@
 
 # Authored by   : Markus Walker
 # Original Date : 3/29/19
-# Date Modified : 6/18/19
+# Date Modified : 12/17/20
 
 # Description   : Bash implementation of the Insertion Sort Algortihm.
 
-echo -e "\e[96m============================================\n"
+echo -e "\x1B[96m============================================\n"
 echo -e "\tInsertion Sort Algorithm\n"
-echo -e "============================================\e[0m\n"
+echo -e "============================================\x1B[0m\n"
 echo -e "Welcome to the Bash implementation of the Insertion Sort Algorithm!"
 
 echo -e "\nThis program will sort an array of numbers in increasing and decreasing order.\n"

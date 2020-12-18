@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 11/26/20
+# Date Modified : 12/17/20
 
 # Description   : To perform basic user management tasks such as adding a member, deleting a member, etc.
 
@@ -110,64 +110,67 @@ This script is interactive and provides basic checking & logic with each task th
 EOF
 }
 
-while getopts ":h" opt; do
-        case ${opt} in
-                h)
-                        usage
-                        exit 0
-                        ;;
-                *)
-			echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 2>&1
-                        exit 1
-                        ;;
-        esac
-done
+Main() {
+	while getopts ":h" opt; do
+		case ${opt} in
+			h)
+				usage
+				exit 0
+				;;
+			*)
+				echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 2>&1
+				exit 1
+				;;
+		esac
+	done
 
-echo -e "\e[96m======================================="
-echo -e "\tUser Management"
-echo -e "=======================================\e[0m"
-echo "This script performs basic user/group sysadmin tasks."
-echo -e "--------------------------------------------------------"
+	echo -e "\x1B[96m======================================="
+	echo -e "\tUser Management"
+	echo -e "=======================================\x1B[0m"
+	echo "This script performs basic user/group sysadmin tasks."
+	echo -e "--------------------------------------------------------"
 
-# List available options.
-echo -e "\nChoose one of the options below:"
-echo " 1 : Add User"
-echo " 2 : Remove User"
-echo " 3 : Create Group"
-echo " 4 : Remove Group"
+	# List available options.
+	echo -e "\nChoose one of the options below:"
+	echo " 1 : Add User"
+	echo " 2 : Remove User"
+	echo " 3 : Create Group"
+	echo " 4 : Remove Group"
 
-INPUT="yes"
-while [[ ${INPUT} = "yes" ]]
-do
-	read -p "Choose an option you want to do: " CHOICE
-	
-	case ${CHOICE} in
-		1)
-			addUser
-			echo "";;
-		2)
-			delUser
-			echo "";;
-		3)
-			addGroup
-			echo "";;
-		4)
-			delGroup
-			echo "";;
-		*)
-			echo -e "You MUST enter a number between 1-4.\n";;
-	esac
+	INPUT="yes"
+	while [[ ${INPUT} = "yes" ]]
+	do
+		read -p "Choose an option you want to do: " CHOICE
 
-	read -p "Do you want to continue ([yes] | no) the script? Please specify: " INPUT
+		case ${CHOICE} in
+			1)
+				addUser
+				echo "";;
+			2)
+				delUser
+				echo "";;
+			3)
+				addGroup
+				echo "";;
+			4)
+				delGroup
+				echo "";;
+			*)
+				echo -e "You MUST enter a number between 1-4.\n";;
+		esac
 
-	if [[ ${INPUT} = "no" ]];
-	then
-		echo -e "Exiting tool.\n"
-	elif [[ ${INPUT} = "yes" ]];
-	then
-		echo ""
-		continue
-	fi
-done
+		read -p "Do you want to continue ([yes] | no) the script? Please specify: " INPUT
 
+		if [[ ${INPUT} = "no" ]];
+		then
+			echo -e "Exiting tool.\n"
+		elif [[ ${INPUT} = "yes" ]];
+		then
+			echo ""
+			continue
+		fi
+	done
+}
+
+Main "$@"
 exit 0

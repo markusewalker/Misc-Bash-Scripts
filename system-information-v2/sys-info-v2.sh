@@ -2,7 +2,7 @@
 
 # Authored by   : Markus Walker
 # Original Date : 7/17/19
-# Date Modified : 7/17/19
+# Date Modified : 12/17/20
 
 # Description   : To display the current Linux distro following system information: hostname, disk space,
 #                 memory, uptime and active users. Utilizes flags rather than having user input.
@@ -66,67 +66,71 @@ displayUsageError() {
     displayUsage
 }
 
-FOREGROUND_COLOR="\e[97m"
-BACKGROUND_COLOR="\e[104m"
-DEFAULT_COLOR="\e[0m"
-BLANK_SPACE=""
+Main() {
+	FOREGROUND_COLOR="\x1B[97m"
+	BACKGROUND_COLOR="\x1B[104m"
+	DEFAULT_COLOR="\x1B[0m"
+	BLANK_SPACE=""
 
-# While loop that displays system information that user inputs.
-while [[ $1 = -* ]]; do
-    case $1 in 
-        -hn|--hostname)
-            displayHostName
-            echo ${BLANK_SPACE}
-	    exit;;
-        -ds|--disk-space)
-            displayDiskSpace
-            echo ${BLANK_SPACE}
-	    exit;;
-        -dm|--display-memory)
-            displayMemory
-            echo ${BLANK_SPACE}
-   	    exit;;
-        -dt|--display-uptime)
-            displayUpTime
-            echo ${BLANK_SPACE}
-            exit;;
-        -du|--display-users)
-            displayUsers
-            echo ${BLANK_SPACE}
-	    exit;;
-        -a|--all)
-            displayHostName
-            displayDiskSpace
-            displayMemory
-            displayUpTime
-            displayUsers
-            echo ${BLANK_SPACE}
-	    exit;;
-        -h|--help)
-            displayUsage
-	        echo ${BLANK_SPACE}
-	        exit;;
-	    *)
-            displayUsageError
-            echo ${BLANK_SPACE}
-            exit;;
-    esac
-done
+	# While loop that displays system information that user inputs.
+	while [[ $1 = -* ]]; do
+	    case $1 in 
+		-hn|--hostname)
+		    displayHostName
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-ds|--disk-space)
+		    displayDiskSpace
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-dm|--display-memory)
+		    displayMemory
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-dt|--display-uptime)
+		    displayUpTime
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-du|--display-users)
+		    displayUsers
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-a|--all)
+		    displayHostName
+		    displayDiskSpace
+		    displayMemory
+		    displayUpTime
+		    displayUsers
+		    echo ${BLANK_SPACE}
+		    exit;;
+		-h|--help)
+		    displayUsage
+			echo ${BLANK_SPACE}
+			exit;;
+		    *)
+		    displayUsageError
+		    echo ${BLANK_SPACE}
+		    exit;;
+	    esac
+	done
 
-echo -e "\e[96m================================================\n"
-echo -e "\tDisplay System Information\n"
-echo -e "================================================\e[0m\n"          
-echo "This script displays information about the current system."
-echo -e "---------------------------------------------------------"
+	echo -e "\x1B[96m================================================\n"
+	echo -e "\tDisplay System Information\n"
+	echo -e "================================================\x1B[0m\n"          
+	echo "This script displays information about the current system."
+	echo -e "---------------------------------------------------------"
 
-# List options available to the user.
-echo -e "\nSee the below options for displaying information about the system."
-echo -e "\t- Display Hostname"
-echo -e "\t- Display Disk Space"
-echo -e "\t- Display Memory"
-echo -e "\t- Display Uptime"
-echo -e "\t- Display Active Users"
-echo -e "\t- Display all options"
-echo -e "\nUse the -h flag or --help flag to see the options to run the script."
+	# List options available to the user.
+	echo -e "\nSee the below options for displaying information about the system."
+	echo -e "\t- Display Hostname"
+	echo -e "\t- Display Disk Space"
+	echo -e "\t- Display Memory"
+	echo -e "\t- Display Uptime"
+	echo -e "\t- Display Active Users"
+	echo -e "\t- Display all options"
+	echo -e "\nUse the -h flag or --help flag to see the options to run the script."
+}
+
+Main "$@"
 
 exit 0

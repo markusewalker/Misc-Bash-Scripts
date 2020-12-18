@@ -2,7 +2,7 @@
 
 # Authored by   : Markus Walker
 # Original Date : 3/13/19
-# Date Modified : 12/8/20
+# Date Modified : 12/17/20
 
 # Description   : To download various Tomcat versions on any Linux OS.
 #                 This script is generalized, so certificates generation/application is not included.
@@ -69,19 +69,23 @@ substitute_ports() {
 	echo -e "Successfully substituted ports 8080 and 8443 with 80 and 443 in Tomcat's server.xml, respectively."
 }
 
-echo -e "\e[96m=====================================================================\n"
-echo -e "\t\t\tTomcat Setup Tool\n"
-echo -e "=====================================================================\e[0m\n"          
-echo -e "This script will download, install and configure Tomcat on this Linux OS."
-echo -e "This script assumes that you have a certificate and does not modify Tomcat to apply a certificate."
-echo -e "-------------------------------------------------------------------------------------------------\n"
+Main() {
+	echo -e "\x1B[96m=====================================================================\n"
+	echo -e "\t\t\tTomcat Setup Tool\n"
+	echo -e "=====================================================================\x1B[0m\n"          
+	echo -e "This script will download, install and configure Tomcat on this Linux OS."
+	echo -e "This script assumes that you have a certificate and does not modify Tomcat to apply a certificate."
+	echo -e "-------------------------------------------------------------------------------------------------\n"
 
-# Run each function in the proceeding order:
-download_tomcat
-extract_tomcat
-remove_tomcat
-enable_tomcat_manager
-disable_context_xml
-substitute_ports
+	# Run each function in the proceeding order:
+	download_tomcat
+	extract_tomcat
+	remove_tomcat
+	enable_tomcat_manager
+	disable_context_xml
+	substitute_ports
+}
+
+Main "$@"
 
 exit 0
