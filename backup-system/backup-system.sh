@@ -13,9 +13,9 @@ then
 	exit 1
 fi
 
-echo -e "\e[96m====================================="
+echo -e "\x1B[96m====================================="
 echo -e "\tBackup System Tool"
-echo -e "=====================================\e[0m\n"
+echo -e "=====================================\x1B[0m\n"
 echo "Beginning to execute backupSystem.sh..."
 echo -e "The following script will backup the following directories: /boot, /etc, /home, /opt, /sys/, /usr.\n"
 sleep 2
