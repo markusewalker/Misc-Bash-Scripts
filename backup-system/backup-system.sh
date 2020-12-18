@@ -2,7 +2,7 @@
 
 # Authored by	: Markus Walker
 # Original Date : 3/15/19
-# Date Modified : 6/18/19
+# Date Modified : 12/1720
 
 # Description	: To backup the system to a mounted backup location and to run weekly on schedule.
 
@@ -10,7 +10,6 @@
 if [[ $(id -u) != 0 ]];
 then
 	echo "ERROR. Please be sure that you are running as root or with sudo privileges!" 2>&1
-
 	exit 1
 fi
 
@@ -19,7 +18,7 @@ echo -e "\tBackup System Tool"
 echo -e "=====================================\e[0m\n"
 echo "Beginning to execute backupSystem.sh..."
 echo -e "The following script will backup the following directories: /boot, /etc, /home, /opt, /sys/, /usr.\n"
-sleep 5
+sleep 2
 
 # List directories to backup.
 BACKUP_FILES="/boot /etc /home /opt /sys /usr"
