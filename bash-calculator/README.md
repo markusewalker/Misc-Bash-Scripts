@@ -16,4 +16,4 @@ To utilize this script, please follow the below workflow:
 (3) Run the script: **./calculator.sh.**
 
 See below an image of the script in action:
-![Image of Calculator](https://github.com/markusewalker/bash_scripts/blob/master/bash-calculator/calculator.png)
+![Image of Calculator](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/bash-calculator/calculator.png)
