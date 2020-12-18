@@ -28,9 +28,9 @@ Division() {
 }
 
 Main() {
-	echo -e "\e[96m==========================================="
+	echo -e "\x1B[96m==========================================="
 	echo -e "\tSimple Calculator Tool"
-	echo -e "===========================================\e[0m\n"
+	echo -e "===========================================\x1B[0m\n"
 
 	echo "Welcome to the Simple Calculator Tool! Please find below the supported operations:"
 	echo "	1 : Addition"
@@ -66,8 +66,7 @@ Main() {
 			     echo -e "You must enter a number between 1-4.\n";;
 		esac
 
-		echo "Do you want to continue? Enter 'yes' or 'no'."
-		read INPUT
+		read -p "Do you want to continue? Enter 'yes' or 'no': " INPUT
 
 		if [[ $INPUT = "no" ]];
 		then
