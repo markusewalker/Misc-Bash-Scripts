@@ -86,4 +86,6 @@ Main() {
 	substitute_ports
 }
 
+Main "$@"
+
 exit 0
