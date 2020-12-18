@@ -13,4 +13,4 @@ To utilize this script, please follow the below workflow:
 
 See below an image of **newScripts.sh** in action:
 
-![Image of New Scripts](https://github.com/markusewalker/bash_scripts/blob/master/create-new-bash-scripts/newScripts.jpg)
+![Image of New Scripts](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/create-new-bash-scripts/newScripts.jpg)
