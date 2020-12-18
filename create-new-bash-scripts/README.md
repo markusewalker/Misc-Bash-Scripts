@@ -1,10 +1,9 @@
 # Create New Bash Scripts
-DESCRIPTION
--
-Bash script to create new scripts to make them executable upon initial creation. This script was developed on Ubuntu 16.04LTS and tested on Ubuntu 16.04 & 18.04, RHEL 7.5 & 7.6, CentOS 7.5. Although this script has not been tested on other distros, little to no changes should be made necessary to the script.
 
-GETTING STARTED
--
+### Description
+Bash script to create new scripts to make them executable upon initial creation.
+
+### Getting Started
 To utilize this script, please follow the below workflow:
 
 (1) Clone the script into your environment.\
