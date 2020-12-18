@@ -13,7 +13,7 @@ To utilize this script, please follow the below workflow:
 See below images of the script in action:
 
 *Downloading Tomcat*\
-![Downloading Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/downloadingTomcat.jpg)
+![Downloading Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/downloadingTomcat.png)
 
 *Extracting Tomcat*\
 ![Extracting Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/extractTomcat.jpg)
