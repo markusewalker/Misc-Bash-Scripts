@@ -4,10 +4,8 @@
 # Original Date : 3/13/19
 # Date Modified : 12/17/20
 
-# Description   : To download various Tomcat versions on any Linux OS.
-#                 This script is generalized, so certificates generation/application is not included.
-#                 Assumes that the certificate has already been generated and assumes it will be applied 
-#                 after the script is ran.
+# Description   : To download various Tomcat versions. This script is generalized, so certificates
+#                 are not imported into the web server. 
 
 # Check to make sure that the script is being run as the root user.
 if [[ $(id -u) = 0 ]];
@@ -20,7 +18,7 @@ fi
 download_tomcat() {
 	echo -e "Downloading Tomcat...\n"
 	sleep 2
-	wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-9.0.40.tar.gz -P $HOME
+	wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P $HOME
 	echo -e "Successfully downloaded Tomcat.\n"
 }
 
@@ -73,7 +71,7 @@ Main() {
 	echo -e "\x1B[96m=====================================================================\n"
 	echo -e "\t\t\tTomcat Setup Tool\n"
 	echo -e "=====================================================================\x1B[0m\n"          
-	echo -e "This script will download, install and configure Tomcat on this Linux OS."
+	echo -e "This script will download, install and configure Tomcat."
 	echo -e "This script assumes that you have a certificate and does not modify Tomcat to apply a certificate."
 	echo -e "-------------------------------------------------------------------------------------------------\n"
 
