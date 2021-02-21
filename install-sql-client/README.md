@@ -12,3 +12,6 @@ To utilize this script, please perform the following:\
 (1) Clone the script into your environment.\
 (2) Make sure the script is executable using the command **chmod +x install-sql-client.sh**.\
 (3) Run the script: **./install-sql-client.sh**.
+
+### Usage Help
+![Install SQL Script Usage](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/install-sql-client/usage.png)
