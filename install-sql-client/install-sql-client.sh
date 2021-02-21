@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 2/12/21
+# Date Modified : 2/20/21
 
 # Description   : To enable install SQL Client on a Linux machine.
 
