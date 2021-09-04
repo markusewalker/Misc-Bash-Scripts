@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Original Date : 3/13/19
-# Date Modified : 12/17/20
+# Date Modified : 9/4/21
 
 # Description   : To download various Tomcat versions. This script is generalized, so certificates
 #                 are not imported into the web server. 
@@ -18,7 +17,7 @@ fi
 download_tomcat() {
 	echo -e "Downloading Tomcat...\n"
 	sleep 2
-	wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.40/bin/apache-tomcat-9.0.40.tar.gz -P $HOME
+	wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.50/bin/apache-tomcat-9.0.50.tar.gz -P $DIR
 	echo -e "Successfully downloaded Tomcat.\n"
 }
 
@@ -26,7 +25,7 @@ download_tomcat() {
 extract_tomcat() {
 	echo -e "Extracting Tomcat...\n"
 	sleep 2
-	tar -xf /$HOME/apache-tomcat-9.0.40.tar.gz -C $HOME
+	tar -xf $DIR/apache-tomcat-9.0.50.tar.gz -C $DIR
 	echo -e "Successfully extracted Tomcat.\n"
 }
 
@@ -34,7 +33,7 @@ extract_tomcat() {
 remove_tomcat() {
 	echo -e "Removing Tomcat compressed folder...\n"
 	sleep 2
-	rm -rf /$HOME/apache-tomcat-9.0.40.tar.gz
+	rm -rf $DIR/apache-tomcat-9.0.50.tar.gz
 	echo -e "Successfully removed downloaded Tomcat compressed folder.\n"
 }
 
@@ -42,10 +41,10 @@ remove_tomcat() {
 enable_tomcat_manager() {
 	echo -e "Enabling Tomcat Manager...\n"
 	sleep 2
-	sed -i '$d' $HOME/apache-tomcat-9.0.40/conf/tomcat-users.xml
-	echo '<role rolename="manager-gui"/>' >> $HOME/apache-tomcat-9.0.40/conf/tomcat-users.xml
-	echo '<user username="manager" password="manager" roles="manager-gui"/>' >> $HOME/apache-tomcat-9.0.40/conf/tomcat-users.xml
-	echo '</tomcat-users>' >> $HOME/apache-tomcat-9.0.40/conf/tomcat-users.xml
+	sed -i '$d' $DIR/apache-tomcat-9.0.50/conf/tomcat-users.xml
+	echo '<role rolename="manager-gui"/>' >> $DIR/apache-tomcat-9.0.50/conf/tomcat-users.xml
+	echo '<user username="manager" password="manager" roles="manager-gui"/>' >> $DIR/apache-tomcat-9.0.50/conf/tomcat-users.xml
+	echo '</tomcat-users>' >> $DIR/apache-tomcat-9.0.50/conf/tomcat-users.xml
 	echo -e "Successfully enabled Tomcat Manager.\n"
 }
 
@@ -53,8 +52,8 @@ enable_tomcat_manager() {
 disable_context_xml() {
 	echo -e "Commenting out the Valve tag within the META-INF directory...\n"
 	sleep 2
-	sed -i '19 s/^/<!--/' $HOME/apache-tomcat-9.0.40/webapps/manager/META-INF/context.xml
-	sed -i '21 s/^/-->/' $HOME/apache-tomcat-9.0.40/webapps/manager/META-INF/context.xml
+	sed -i '19 s/^/<!--/' $DIR/apache-tomcat-9.0.50/webapps/manager/META-INF/context.xml
+	sed -i '21 s/^/-->/' $DIR/apache-tomcat-9.0.50/webapps/manager/META-INF/context.xml
 	echo -e "Successfully commented out the Valve tag within the META-INF directory.\n"
 }
 
@@ -62,8 +61,8 @@ disable_context_xml() {
 substitute_ports() {
 	echo -e "Substituting ports 8080 and 8443 with ports 80 and 443 in Tomcat's server.xml file...\n"
 	sleep 2
-	sed -i 's/<Connector port="8080"/<Connector port="80"/1' $HOME/apache-tomcat-9.0.40/conf/server.xml
-	sed -i 's/redirectPort="8443"/redirectPort="443"/1' $HOME/apache-tomcat-9.0.40/conf/server.xml
+	sed -i 's/<Connector port="8080"/<Connector port="80"/1' $DIR/apache-tomcat-9.0.50/conf/server.xml
+	sed -i 's/redirectPort="8443"/redirectPort="443"/1' $DIR/apache-tomcat-9.0.50/conf/server.xml
 	echo -e "Successfully substituted ports 8080 and 8443 with 80 and 443 in Tomcat's server.xml, respectively."
 }
 
@@ -74,6 +73,8 @@ Main() {
 	echo -e "This script will download, install and configure Tomcat."
 	echo -e "This script assumes that you have a certificate and does not modify Tomcat to apply a certificate."
 	echo -e "-------------------------------------------------------------------------------------------------\n"
+
+	read -p "Enter in the directory to setup Tomcat in: " DIR
 
 	# Run each function in the proceeding order:
 	download_tomcat
