@@ -8,21 +8,23 @@ To utilize this script, please follow the below workflow:
 
 (1) Clone the script into your environment.\
 (2) Make sure the script is executable using the command **"chmod +x setup-tomcat.sh"**.\
-(3) Run the script: **./setup-tomcat.sh.**
+(3) Navigate to the src folder and run the script: **./setup-tomcat.sh.**
 
-See below images of the script in action:
+See below image of the script in action:
 
-*Downloading Tomcat*\
-![Downloading Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/downloadingTomcat.png)
+![Setting up Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/setup-tomcat.jpg)
 
-*Extracting Tomcat*\
-![Extracting Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/extractTomcat.jpg)
+### BATS Testing
+Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the test.bats file.
 
-*Removing downloaded file*\
-![Removing Downloaded file](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/removeTomcat.jpg)
+To install BATS directly on your system, following this documentation: https://bats-core.readthedocs.io/en/stable/installation.html. Once done, run the following command from directory tomcat-setup/test/test: `bats test.bats`
 
-*Enabling Tomcat Manager*\
-![Enabling Tomcat Manager](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/enableManager.jpg)
+If you do not install BATS directly on your system, run the following commands from the tomcat-setup folder:
 
-*Substitue ports*\
-![Substitue Ports](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/substiutePorts.jpg)
+`git submodule add https://github.com/bats-core/bats-core.git test/bats`
+`git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support`
+`git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert`
+
+Once done, run the following command from the directory `tomcat-setup` folder: `/test/bats/bin/bats test/test/test.bats`. Using either method, you should see the following:
+
+![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/bats.jpg)

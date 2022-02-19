@@ -1,0 +1,18 @@
+[submodule "test/bats"]
+	path = test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "test/test_helper/bats-support"]
+	path = test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "test/test_helper/bats-assert"]
+	path = test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
+[submodule "tomcat-setup/test/bats"]
+	path = tomcat-setup/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "tomcat-setup/test/test_helper/bats-support"]
+	path = tomcat-setup/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "tomcat-setup/test/test_helper/bats-assert"]
+	path = tomcat-setup/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
