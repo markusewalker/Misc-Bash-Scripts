@@ -20,7 +20,7 @@ If you choose to install BATS directly on your system, following this documentat
 
 In the `bash-calculator` folder, run the following commands:
 
-`git init` (May not be needed...)
+`git init` (May not be needed...) \
 `git submodule add https://github.com/bats-core/bats-core.git test/bats`\
 `git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support`\
 `git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert`
