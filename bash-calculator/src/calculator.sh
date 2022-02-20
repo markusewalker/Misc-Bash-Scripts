@@ -4,7 +4,7 @@
 # Date Modified : 2/19/22
 
 # Description   : Simple calculator script written in Bash to perform the following operations: addition
-#		  		  subtraction, multiplication and division.
+#		  subtraction, multiplication and division.
 
 Addition() {
 	RESULT=$(echo "$A+$B" | bc -l)
