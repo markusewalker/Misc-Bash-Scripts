@@ -16,3 +16,12 @@
 [submodule "tomcat-setup/test/test_helper/bats-assert"]
 	path = tomcat-setup/test/test_helper/bats-assert
 	url = https://github.com/bats-core/bats-assert.git
+[submodule "bash-calculator/test/bats"]
+	path = bash-calculator/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "bash-calculator/test/test_helper/bats-support"]
+	path = bash-calculator/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "bash-calculator/test/test_helper/bats-assert"]
+	path = bash-calculator/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git

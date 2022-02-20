@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Original Date : 3/18/19
-# Date Modified : 12/17/20
+# Date Modified : 2/19/22
 
 # Description   : Simple calculator script written in Bash to perform the following operations: addition
-#		  subtraction, multiplication and division.
+#		  		  subtraction, multiplication and division.
 
 Addition() {
 	RESULT=$(echo "$A+$B" | bc -l)
@@ -27,6 +26,44 @@ Division() {
 	echo -e "Result of these two numbers is: ${RESULT}"
 }
 
+usage() {
+	cat << EOF
+
+calculator.sh
+
+Simple calculator written in Bash that will perform the following operations:
+
+	- Addition
+	- Subtraction
+	- Multiplication
+	- Division
+
+This script can be ran interactively, command-line arguments will be a functionality coming later.
+
+USAGE: % ./$(basename "$0") [options]
+
+OPTIONS:
+	-h	-> Usage
+
+EXAMPLES:
+
+* Run interactively
+	$ ./$(basename "$0")
+
+EOF
+}
+
+while getopts "h" opt; do
+	case ${opt} in
+		h)
+			usage
+			exit 0;;
+		*)
+			echo "Invalid option: ${OPTARG}. Valid option(s) are [-h]." 2>&1
+			exit 1;;
+	esac
+done
+
 Main() {
 	echo -e "\x1B[96m==========================================="
 	echo -e "\tSimple Calculator Tool"
@@ -36,7 +73,8 @@ Main() {
 	echo "	1 : Addition"
 	echo "	2 : Subtraction"
 	echo "	3 : Multiplication"
-	echo -e "	4 : Division\n"
+	echo "	4 : Division"
+	echo ""
 
 	# Keep running the program so long as the user inputs yes
 	INPUT="yes"
@@ -70,7 +108,7 @@ Main() {
 
 		if [[ $INPUT = "no" ]];
 		then
-			echo -e "\nThank you for using the Simple Calculator Tool!\n"
+			echo -e "\nThank you for using the Bash Calculator!"
 
 		elif [[ $INPUT = "yes" ]];
 		then
