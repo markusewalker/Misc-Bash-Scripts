@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run Unit Tests') {
             steps {
-                sh 'bash-calculator/test/test/test.bats'
+                sh 'test/bats/bin/bats test/test/test.bats'
             }
         }
     }
