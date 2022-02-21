@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run Unit Tests') {
             steps {
-                sh 'bats backup-system/src/test.bats'
+                sh 'sudo bats backup-system/src/test.bats'
             }
         }
     }
