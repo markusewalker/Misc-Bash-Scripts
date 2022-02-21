@@ -16,7 +16,7 @@ teardown() {
 }
 
 @test "silently create new script" {
-    run -new-scripts.sh -n test
+    run new-scripts.sh -n test
 }
 
 @test "interactively create new script" {
