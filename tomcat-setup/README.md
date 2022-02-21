@@ -28,7 +28,7 @@ In the `tomcat-setup` folder, run the following commands:
 
 Once done, navigate to the `tomcat-setup/src` folder and perform one of the following commands:
 
-`bats test.bats`
+`bats test.bats` \
 `../test/bats/bin/bats test.bats`
 
 ![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/bats.jpg)
