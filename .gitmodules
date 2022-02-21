@@ -25,3 +25,12 @@
 [submodule "bash-calculator/test/test_helper/bats-assert"]
 	path = bash-calculator/test/test_helper/bats-assert
 	url = https://github.com/bats-core/bats-assert.git
+[submodule "create-new-bash-scripts/test/bats"]
+	path = create-new-bash-scripts/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "create-new-bash-scripts/test/test_helper/bats-support"]
+	path = create-new-bash-scripts/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "create-new-bash-scripts/test/test_helper/bats-assert"]
+	path = create-new-bash-scripts/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
