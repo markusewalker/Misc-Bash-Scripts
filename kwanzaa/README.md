@@ -11,7 +11,7 @@ To utilize this script, please perform the following:\
 (3) Run the script: **./kwanzaa.sh**.
 
 ### Example
-![Kwanzaa Usage](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/kwanzaa/kwanzaa-usage.jpg)
+![Kwanzaa Usage](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/kwanzaa/kwanzaa.jpg)
 
 ### BATS Testing
 Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the `test.bats` file.
@@ -29,3 +29,5 @@ Once done, navigate to the `kwanzaa/src` folder and perform one of the following
 
 `bats test.bats` \
 `../test/bats/bin/bats test.bats`
+
+![BATS Testing](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/kwanzaa/bats.jpg)
