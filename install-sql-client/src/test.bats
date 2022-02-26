@@ -8,28 +8,28 @@ setup() {
 }
 
 @test "run script's usage" {
-    run ./install-sql-client.sh -h
+    run install-sql-client.sh -h
 }
 
 @test "run script interactively" {
-    run ./install-sql-client.sh
+    run install-sql-client.sh
 }
 
 @test "run script silently with -r option" {
     skip
-    run ./install-sql-client.sh -r
+    run install-sql-client.sh -r
 }
 
 @test "run script silently with -u option" {
-    run ./install-sql-client.sh -u
+    run install-sql-client.sh -u
 }
 
 @test "run script silently with -s option" {
     skip
-    run ./install-sql-client.sh -s
+    run install-sql-client.sh -s
 }
 
 @test "run script silently with -a option" {
     skip
-    run ./install-sql-client.sh -a
+    run install-sql-client.sh -a
 }

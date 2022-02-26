@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 
-spawn "./kwanzaa.sh"
+spawn "kwanzaa.sh"
 
 expect "Please select an option to choose:\r"
 send "8\r"
