@@ -43,3 +43,12 @@
 [submodule "install-sql-client/test/test_helper/bats-assert"]
 	path = install-sql-client/test/test_helper/bats-assert
 	url = https://github.com/bats-core/bats-assert.git
+[submodule "kwanzaa/test/bats"]
+	path = kwanzaa/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "kwanzaa/test/test_helper/bats-support"]
+	path = kwanzaa/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "kwanzaa/test/test_helper/bats-assert"]
+	path = kwanzaa/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
