@@ -33,3 +33,5 @@ Once done, navigate to the `install-sql-client/src` folder and perform one of th
 
 `bats test.bats` \
 `../test/bats/bin/bats test.bats`
+
+![BATS Testing](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/install-sql-client/bats.jpg)
