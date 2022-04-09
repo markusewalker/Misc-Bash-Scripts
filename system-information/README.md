@@ -28,6 +28,6 @@ In the `system-information` folder, run the following commands:
 Once done, navigate to the `system-information/src` folder and perform one of the following commands:
 
 `bats test.bats` \
-`../test/bats/bin/bats test.bats` \
+`../test/bats/bin/bats test.bats`
 
-![BATS Image(https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information/bats.jpg)
+![BATS Image](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information/bats.jpg)
