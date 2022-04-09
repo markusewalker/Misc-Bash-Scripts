@@ -7,7 +7,7 @@ setup() {
     PATH="$DIR/../src:$PATH"
 }
 
-@test "run script's usage {
+@test "run script's" usage {
     run sys-info.sh -h
 }
 
