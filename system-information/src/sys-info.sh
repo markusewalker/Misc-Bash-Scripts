@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Original Date : 7/5/19
-# Date Modified : 12/17/20
+# Date Modified : 4/8/22
 
 # Description   : To display the current Linux distro following system information: hostname, disk space,
 #                 memory, uptime and active users.
@@ -11,36 +10,68 @@
 displayHostName() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** HOSTNAME INFORMATION ***${DEFAULT_COLOR}"
     hostnamectl
-    echo ${BLANK_SPACE}
+    echo ""
 }
 
 # Display disk space usage of the system.
 displayDiskSpace() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** DISK SPACE USAGE ***${DEFAULT_COLOR}\n"
     df -h
-    echo ${BLANK_SPACE}
+    echo ""
 }
 
 # Display free and used memory of the system.
 displayMemory() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** MEMORY USAGE ***${DEFAULT_COLOR}\n"
     free
-    echo ${BLANK_SPACE}
+    echo ""
 }
 
 # Display uptime and load of the system.
 displayUpTime() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** SYSTEM UPTIME AND LOAD ***${DEFAULT_COLOR}\n"
     uptime
-    echo ${BLANK_SPACE}
+    echo ""
 }
 
 # Display active users on the system.
 displayUsers() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** ACTIVE USERS ***${DEFAULT_COLOR}\n"
     who
-    echo ${BLANK_SPACE}
+    echo ""
 }
+
+usage() {
+    cat << EOF
+
+sys-info.sh
+
+Script that will display the system information including the following:
+    - Hostname
+    - Disk space
+    - Memory
+    - Uptime
+    - Active users
+    - All of the above
+
+USAGE: % ./$(basename "$0") [options]
+
+OPTIONS:
+    -h          -> Usage
+
+EOF
+}
+
+while getopts "h" opt; do
+	case ${opt} in
+		h)
+			usage
+            exit 0;;
+		*)
+			echo "Invalid option. Valid option(s) are [-h]." 2>&1
+			exit 1;;
+	esac
+done
 
 Main() {
     echo -e "\x1B[96m================================================\n"
@@ -61,7 +92,6 @@ Main() {
     FOREGROUND_COLOR="\x1B[97m"
     BACKGROUND_COLOR="\x1B[104m"
     DEFAULT_COLOR="\x1B[0m"
-    BLANK_SPACE=""
 
     INPUT="yes"
     while [[ ${INPUT} = "yes" ]]
@@ -72,26 +102,26 @@ Main() {
         case ${CHOICE} in 
             1)
                 displayHostName
-                echo ${BLANK_SPACE};;
+                echo "";;
             2)
                 displayDiskSpace
-                echo ${BLANK_SPACE};;
+                echo "";;
             3)
                 displayMemory
-                echo ${BLANK_SPACE};;
+                echo "";;
             4)
                 displayUpTime
-                echo ${BLANK_SPACE};;
+                echo "";;
             5)
                 displayUsers
-                echo ${BLANK_SPACE};;
+                echo "";;
             6)
                 displayHostName
                 displayDiskSpace
                 displayMemory
                 displayUpTime
                 displayUsers
-                echo ${BLANK_SPACE};;
+                echo "";;
             *)
                 echo -e "You must enter a number between 1-6 ONLY.\n";;
         esac
@@ -101,11 +131,11 @@ Main() {
 
         if [[ ${INPUT} = "no" ]];
         then
-            echo -e ${BLANK_SPACE}
+            echo ""
 
         elif [[ ${INPUT} = "yes" ]];
         then    
-            echo ${BLANK_SPACE}
+            echo ""
             continue
         fi
     done
