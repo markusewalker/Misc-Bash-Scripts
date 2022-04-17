@@ -31,4 +31,4 @@ Once done, navigate to the `system-information-v2/src` folder and perform one of
 `sudo bats test.bats` \
 `sudo ../test/bats/bin/bats test.bats`
 
-![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/backup-system/bats.jpg)
+![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information-v2/bats.jpg)
