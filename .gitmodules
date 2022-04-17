@@ -52,3 +52,12 @@
 [submodule "kwanzaa/test/test_helper/bats-assert"]
 	path = kwanzaa/test/test_helper/bats-assert
 	url = https://github.com/bats-core/bats-assert.git
+[submodule "system-information-v2/test/bats"]
+	path = system-information-v2/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "system-information-v2/test/test_helper/bats-support"]
+	path = system-information-v2/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "system-information-v2/test/test_helper/bats-assert"]
+	path = system-information-v2/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git

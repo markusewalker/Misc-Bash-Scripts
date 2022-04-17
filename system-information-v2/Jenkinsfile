@@ -1,0 +1,10 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Run Unit Tests') {
+            steps {
+                sh 'sudo bats system-information-v2/src/test.bats'
+            }
+        }
+    }
+}
