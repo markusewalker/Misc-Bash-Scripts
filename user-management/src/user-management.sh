@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 12/17/20
+# Date Modified : 4/16/22
 
 # Description   : To perform basic user management tasks such as adding a member, deleting a member, etc.
+
+INTERACTIVE=true
 
 if [[ $(id -u) != 0 ]];
 then
@@ -55,8 +57,7 @@ addGroup() {
 
 	read -p "Do you wish to add members to ${GROUP} (yes | no)? Please specify: " CHOICE
 
-	if [[ ${CHOICE} == "yes" ]];
-	then
+	if [[ ${CHOICE} = "yes" ]]; then
 		INPUT="yes"
 		while [[ ${INPUT} = "yes" ]];
 		do
@@ -78,9 +79,8 @@ addGroup() {
 			fi
 
 		done
-	elif [[ ${CHOICE} == "no" ]];
-	then
-		"${USER} will not be added to ${GROUP} at this time."
+	elif [[ ${CHOICE} = "no" ]]; then
+		echo -e "\nAdding no users at this time."
 	fi
 }
 
@@ -93,12 +93,15 @@ delGroup() {
 	echo -e "\nDeleting ${GROUP}..."
 	groupdel ${GROUP}
 
-	echo -e "Verifying group is deleted..."
+	echo -e "\nVerifying group is deleted..."
 	getent group | grep ${GROUP}
 }
 
 usage() {
 	cat << EOF
+
+user-management.sh
+
 This script performs basic user group and sysadmin tasks. The options are shown below:
 
 	- Adding Members
@@ -106,71 +109,112 @@ This script performs basic user group and sysadmin tasks. The options are shown 
 	- Adding Groups
 	- Deleting Groups
 
-This script is interactive and provides basic checking & logic with each task that is specified. It is not meant to be a complex script.
+This script is interactive and provides basic checking & logic with each task that is specified.
+
+USAGE: % ./$(basename "$0") [options]
+
+OPTIONS:
+
+	-h		-> Usage
+	-a		-> Add members
+	-d		-> Delete members
+	-b		-> Add group
+	-f		-> Delete group
+
+EXAMPLES:
+
+* Run script interactively
+
+	$ ./$(basename $0)
+
+* Add user silently
+
+	$ ./$(basename $0) -a
+
 EOF
+
 }
 
+while getopts "hadbf" opt; do
+	case ${opt} in
+		h)
+			usage
+			exit 0
+			;;
+		a)
+			INTERACTIVE=false
+			addUser
+			;;
+		d)
+			INTERACTIVE=false
+			delUser
+			;;
+		b)
+			INTERACTIVE=false
+			delUser
+			;;
+		f)
+			INTERACTIVE=false
+			delGroup
+			;;
+		*)
+			echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 2>&1
+			exit 1
+			;;
+	esac
+done
+
 Main() {
-	while getopts ":h" opt; do
-		case ${opt} in
-			h)
-				usage
-				exit 0
-				;;
-			*)
-				echo "Invalid option: $OPTARG. Valid option(s) are [-h]." 2>&1
-				exit 1
-				;;
-		esac
-	done
+	if [[ "${INTERACTIVE}" = true ]]; then
+		echo -e "\x1B[96m======================================="
+		echo -e "\tUser Management"
+		echo -e "=======================================\x1B[0m"
+		echo "This script performs basic user/group sysadmin tasks."
+		echo -e "--------------------------------------------------------"
 
-	echo -e "\x1B[96m======================================="
-	echo -e "\tUser Management"
-	echo -e "=======================================\x1B[0m"
-	echo "This script performs basic user/group sysadmin tasks."
-	echo -e "--------------------------------------------------------"
+		# List available options.
+		echo -e "\nChoose one of the options below:"
+		echo " 1 : Add User"
+		echo " 2 : Remove User"
+		echo " 3 : Create Group"
+		echo -e " 4 : Remove Group\n"
 
-	# List available options.
-	echo -e "\nChoose one of the options below:"
-	echo " 1 : Add User"
-	echo " 2 : Remove User"
-	echo " 3 : Create Group"
-	echo " 4 : Remove Group"
+		INPUT="yes"
+		while [[ ${INPUT} = "yes" ]]
+		do
+			read -p "Choose an option you want to do: " CHOICE
 
-	INPUT="yes"
-	while [[ ${INPUT} = "yes" ]]
-	do
-		read -p "Choose an option you want to do: " CHOICE
+			case ${CHOICE} in
+				1)
+					addUser
+					echo "";;
+				2)
+					delUser
+					echo "";;
+				3)
+					addGroup
+					echo "";;
+				4)
+					delGroup
+					echo "";;
+				*)
+					echo -e "You MUST enter a number between 1-4.\n";;
+			esac
 
-		case ${CHOICE} in
-			1)
-				addUser
-				echo "";;
-			2)
-				delUser
-				echo "";;
-			3)
-				addGroup
-				echo "";;
-			4)
-				delGroup
-				echo "";;
-			*)
-				echo -e "You MUST enter a number between 1-4.\n";;
-		esac
+			read -p "Do you want to continue ([yes] | no) the script? Please specify: " INPUT
 
-		read -p "Do you want to continue ([yes] | no) the script? Please specify: " INPUT
-
-		if [[ ${INPUT} = "no" ]];
-		then
-			echo -e "Exiting tool.\n"
-		elif [[ ${INPUT} = "yes" ]];
-		then
-			echo ""
-			continue
-		fi
-	done
+			if [[ ${INPUT} = "no" ]];
+			then
+				echo -e "Exiting tool.\n"
+			elif [[ ${INPUT} = "yes" ]];
+			then
+				echo ""
+				continue
+			fi
+		done
+	fi
 }
 
 Main "$@"
+
 exit 0

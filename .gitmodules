@@ -61,3 +61,21 @@
 [submodule "system-information-v2/test/test_helper/bats-assert"]
 	path = system-information-v2/test/test_helper/bats-assert
 	url = https://github.com/bats-core/bats-assert.git
+[submodule "user-management/src/test/bats"]
+	path = user-management/src/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "user-management/src/test/test_helper/bats-support"]
+	path = user-management/src/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "user-management/src/test/test_helper/bats-assert"]
+	path = user-management/src/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
+[submodule "user-management/test/bats"]
+	path = user-management/test/bats
+	url = https://github.com/bats-core/bats-core.git
+[submodule "user-management/test/test_helper/bats-support"]
+	path = user-management/test/test_helper/bats-support
+	url = https://github.com/bats-core/bats-support.git
+[submodule "user-management/test/test_helper/bats-assert"]
+	path = user-management/test/test_helper/bats-assert
+	url = https://github.com/bats-core/bats-assert.git
