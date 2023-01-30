@@ -1,13 +1,12 @@
 #!/bin/bash
 
 # Authored By   : Markus Walker
-# Date Modified : 2/25/22
+# Date Modified : 1/30/23
 
 # Description   : Inspired by "Practicing Kwanzaa Year Round" by Gwynelle Dismukes.
 #                 Simple explanations regarding the Seven Principles and the 
 #                 the traditional symbols surrounding Kwanzaa.
 
-# Function to provide different choices an end-user has to learn more about Kwanzaa.
 choices() {
     echo -e "This script gives the following options. Please find them below:\n"
     echo -e "[1]\tWhat is Kwanzaa?"
@@ -22,7 +21,6 @@ choices() {
     echo -e "[10]\tImani (Faith)\n"
 }
 
-# Function to defines the origins of Kwanzaa and its importance.
 kwanzaa() {
     cat << "EOF"
 
@@ -51,7 +49,6 @@ are the traditional symbols of Kwanzaa.
 EOF
 }
 
-# Function to define the traditional symbols of Kwanzaa.
 symbols() {
     cat << "EOF"
 
@@ -68,7 +65,6 @@ Kwanzaa contains the following traditional symbols:
 The table below gives a brief summary on each of the symbols:
 
 ========================================================================================================
-Symbol                                              Description
 Mkeka           | The straw mat. Represents the foundation for the family and community.
 Kinara          | The seven-stick candleholder. Represents family background.
 Mishumaa Saba   | The seven candles. 3 red, 3 green, 1 black. Represents the Nguzo Saba.
@@ -82,7 +78,6 @@ Karamu          | The communal fest held on the last day of Kwanzaa.
 EOF
 }
 
-# Function that briefly discusses the Nguzo Saba (Seven Principles)
 nguzoSaba() {
 cat << "EOF"
 
@@ -97,7 +92,6 @@ principle is discussed in greater detail in their respective sections.
 EOF
 }
 
-# Function to talk of the first principle.
 umoja() {
     cat << "EOF"
 
@@ -113,52 +107,11 @@ umoja() {
 =================================
 
 Habari Gani? Umoja/Unity (pronounced oo-MO-jah)! "To strive for and maintain unity in the family, community, nation and race".
-This is the first principle of the seven and represents the center black candle in the kinara.
-
-Below is the symbol for Umoja:
-
-    ▄▄▄▄▄▄▄▄              ▄▄▄▄▄▄▄
-
-  ▄████████████▄        ▄███████████▄
-
- █████▀    ▀▀████▄    ▄████▀▀   ▀▀████▄
-
-▐███▀         ▀████▄  ▀██▀         ████▄
-
-████            ▀█████▄             ███▌
-
-▐███▄             ▀█████▄          ████
-
- ▀████▄      ▄████▄  █████▄      ▄████▀
-
-   ▀████▌  ▄█████▀     ▀████   ▄████▀
-
-     ▀▀  ▄█████          ▀▀  ▄████▀
-
-       ▄████▀              █████▀
-
-     ▄████▀  ▄█▄        ▄█████▀  ██▄
-
-   █████▀   ▀████▄    ▄█████▀   ▀████▄
-
- ▄████▀       ▀█████  ▀███        ▀████
-
-▐███▀           ▀█████▄             ████
-
-████               █████▄           ████
-
-▐███▄         ▄███▄  ▀████▄        ▄███▌
-
- ▀████▄▄   ▄█████▀     ▀█████▄▄▄▄█████▀
-
-   ▀███████████▀         ▀██████████▀
-
-      ▀▀▀▀▀▀                 
+This is the first principle of the seven and represents the center black candle in the kinara.            
 
 EOF
 }
 
-# Function to talk of the second principle.
 kujichagulia() {
     cat << "EOF"
 
@@ -176,32 +129,9 @@ kujichagulia() {
 Habari Gani? Kujichagulia/Self-determination (pronounced koo-gee-cha-goo-LEE-yah)! "To define ourselves, name ourselves, create
 for ourselves and speak for ourselves". This is the second principle and represents the leftmost rest candle in the kinara.
 
-Below is the symbol for Kujichagulia:
-
-▄▄▄                                  ▄▄▄
-
- ▀██▄▄  ███████████████████████▀  ▄▄██▀
-
-    ▀▀████████████████████████████▀▀
-
-        ▀▀█████████████████████▀
-
-        ▄████▀    ████▌    ▀████
-
-       ▐███▌      ████▌      ████
-
-       ▐███▌      ████▌      ████
-
-        ▀████▄    ████▌   ▄▄████
-
-        ▄███████████████████████
-
-▄▄▄▄█▄▄▄▄▄▄▄█▄████████████████▄█▄█▄▄▄▄▄▄
-
 EOF
 }
 
-# Function to talk of the third principle.
 ujima() {
     cat << "EOF"
 
@@ -220,50 +150,9 @@ Habari Gani? Ujima/Collective Work & Responsibility (pronounced oo-GEE-mah)! "To
 make our brother's and sister's problems our problems and to solve them together". This is the third principle and represents the
 middle red candle in the kinara.
 
-Below is the symbol for Ujima:
-
-    ▄▄▄▄▄▄▄                    ▄▄▄▄▄
-
-   ███████████▄            ▄███████████
-
-  ██████████████         ▐█████████████▌
-
-  ████████████▀           ▀████████████▌
-
-  ███████████▌              ███████████
-
-   ██████▀▀███▄            ███████████▀
-
-    ▀█▀     ▀███▄       ▄███▀   ▀███▀
-
-              ██████▄█████▀
-
-               ██████████
-
-               ▐█████████
-
-               ██████████
-
-             ▄█████▀▀█████▄      ▄▄▄
-
-  ▄████    ▄███▀        ▀███▄▄▄▄█████▄
-
- ████████████▀             ████████████
-
-████████████                ████████████
-
-████████████              ██████████████
-
- ████████████            ▀█████████████▀
-
-  ▀██████████▌             ▀█████████▀
-
-     ▀▀▀▀▀▀▀                    
-
 EOF
 }
 
-# Function to talk of the fourth principle.
 ujamaa() {
     cat << "EOF"
 
@@ -282,46 +171,9 @@ Habari Gani? Ujamaa/Cooperative Economics (pronounced oo-JAH-mah)! "To build and
 and to profit from them together". This is the fourth principle and represents the last red candle in the kinara, immediate left to
 the black umoja candle.
 
-Below is the symbol for Ujamaa:
-
-             ▄███▄     ▄███
-
-              ▀████▄▄████▀
-
-                ▀██████▀
-
-                 ██████
-
-                ████████▄
-
-               ████  ████
-
-              ████▌  ▐████
-
-              ████    ████
-
-              ████    ████
-
-              ████▌   ████
-
-              ▐████  ▐████
-
-               █████ ████
-
-                ▀███████
-
-                 ▀█████
-
-                ▄███████▄
-
-             ▄█████▀ ▀████▄
-
-             ▀██▀      ▀██▀
-
 EOF
 }
 
-# Function to talk of the fifth principle.
 nia() {
     cat << "EOF"
 
@@ -338,68 +190,9 @@ Habari Gani? Nia/Purpose (pronounced nee-YAH)! "To make our collective vocation 
 to restore our people to their traditional greatness". This is the fith principle and represents the first green candle in the kinara,
 immediate right to the black umoja candle.
 
-Below is the symbol for Nia:
-
-                  ████
-
-                  ████▌
-
-                  ████▌
-
-                  ████▌
-
-          ▄███████████████████
-
-           ▀▀▀▀▀▀▀█████▀▀▀▀▀▀▀
-
-                  ████▌
-
-                  ████▌
-
-                  ████▌
-
-                  ████▌    ▄▄
-
-                  ████▌    ██
-
-                  ████▌    ██
-
-                  ████▌    ██
-
-                  ████▌    ██
-
-                  ████▌   ██
-
-                  ████▌
-
-                  ████▌
-
-                  ████▌
-
-                  ████▌
-
-              ▄▄█████████▄▄
-
-            █████████████████▄
-
-           ███████████████████▌
-
-          █████████████████████▌
-
-          █████████████████████▌
-
-         ▐█████████████████████
-
-           ███████████████████▌
-
-            █████████████████▀
-
-             ███████████████
-
 EOF
 }
 
-# Function to talk of the sixth principle.
 kuumba() {
     cat << "EOF"
 
@@ -416,53 +209,9 @@ Habari Gani? Kuumba/Creativity (pronounced koo-OOM-bah)! "To do always as much a
 community more beautiful and beneficial than we inherited it". This is the sixth principle and represents the second middle green
 candle in the kinara.
 
-Below is the symbolf or Kuumba:
-                        ▄█
-
-        ██            ▄█▀
-
-         █▌         ▄█▀
-
-         ██       ▄██
-
-          █▌    ▄██
-
-   ▀██▄    █  ▄██
-
-      ▀▀██  ▄ ▀▀            
-
-           ▀█▌ ▐████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-
-     ▄██▀▀ ▄▄ ██
-
-     ▀    ▐█▌  ▀██
-
-           █     ▀██▄
-
-          ██       ▀██▄
-
-          █▌         ▀██▄
-
-         ▐█            ▀██▄
-
-          █               ██▄
-
-         ██                ▀██▄
-
-         █▌                   ██
-
-        ▐█
-
-        ██
-
-        █▌
-
-       ▐█▌
-
 EOF
 }
 
-# Function to talk of the seventh principle.
 imani() {
     cat << "EOF"
 
@@ -479,45 +228,11 @@ Habari Gani? Imani/Faith (pronounced ee-MAH-nee)! "To believe with all our heart
 leaders and the righteousness and victory of our struggle". This is the seventh and last principle and represents the rightmost
 green candle in the kinara.
 
-Below is the symbol for Imani:
-       ▄▄▄█▄▄▄
-
-     ██▀▐███ ▀█▄
-
-    ▐█   ███  ▐█
-
-    ▐█▌  ███▄ ██
-
-     ▀█▄ ███ ▄█▀
-
-      ▀█▄█████▀
-
-       ▐█████▌
-
-   ██████████████▌
-
-         ███
-
-         ███
-
-         ███
-
-         ███
-
-         ███▌
-
-         ███▌
-
-         ▀▀▀
-
 EOF
 }
 
-# Usage function describing the purpose the script.
 usage() {
     cat << "EOF"
-
-kwanzaa.sh
 
 ============================================================================
   _    _                           _  __                                  _ 
@@ -542,7 +257,7 @@ cat << EOF
 
 Examples of usage:
 
-    $ ./$(basename $0)
+    $ ./$(basename "$0")
     
 EOF
 }
@@ -561,9 +276,9 @@ done
 Main() {
     echo -e "\x1B[96m================================================================"
     echo -e "\t\tPracticing Kwanzaa Year Round"
-    echo -e "================================================================\n"
+    echo -e "================================================================"
     echo -e "This script will discuss the Nguzo Saba and the traditional symbols of Kwanzaa."
-    echo -e "-------------------------------------------------------------------------------\x1B[0m\n"
+    echo -e "-------------------------------------------------------------------------------\x1B[0m"
 
     choices
 
@@ -610,20 +325,17 @@ Main() {
 
         read -p "Do you wish to learn more? Enter 'yes' or 'no': " INPUT
 
-        if [[ ${INPUT} = "no" ]];
-        then
-            echo -e "\nHappy Kwanzaa and remember to pratice year-round!\n"
-        
-        elif [[ ${INPUT} = "yes" ]];
-        then
-            echo -e "\nLet's continue learning!\n"
-            choices
-            continue
-        else
-            echo -e "\nHappy Kwanzaa and remember to pratice year-round!\n"
-        fi
+        [[ ${INPUT} = "no" ]] && echo -e "\nHappy Kwanzaa and remember to pratice year-round!\n";
 
-        done
+        [[ ${INPUT} = "yes" ]] && choices && continue
+        while [[ ${INPUT} != "yes" ]] && [[ ${INPUT} != "no" ]]
+		do
+			read -p "Please enter 'yes' or 'no': " INPUT
+            
+			[[ ${INPUT} = "no" ]] && echo -e "\nHappy Kwanzaa and remember to pratice year-round!\n"
+			[[ ${INPUT} = "yes" ]] && choices && continue
+		done
+    done
 }
 
 Main "$@"

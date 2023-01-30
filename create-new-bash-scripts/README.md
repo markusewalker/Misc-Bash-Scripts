@@ -6,11 +6,11 @@ Bash script to create new scripts to make them executable upon initial creation.
 ### Getting Started
 To utilize this script, please follow the below workflow:
 
-(1) Clone the script into your environment.\
-(2) Make sure the script is executable using the command **"chmod +x new-scripts.sh"**.\
-(3) Run the script: **./new-scripts.sh**.
+1. Clone the script into your environment.
+2. Make sure the script is executable using the command `chmod +x new-scripts.sh`.
+3. Run the script: `./new-scripts.sh`.
 
-See below an image of **new-scripts.sh** in action:
+See below an image of `new-scripts.sh` in action:
 
 ![Image of New Scripts](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/create-new-bash-scripts/new-scripts.jpg)
 
@@ -21,14 +21,18 @@ If you choose to install BATS directly on your system, following this documentat
 
 In the `create-new-bash-scripts` folder, run the following commands:
 
-`git init (May not be needed...)` \
-`git submodule add https://github.com/bats-core/bats-core.git test/bats` \
-`git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support` \
-`git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert`
+```
+git init
+git submodule add https://github.com/bats-core/bats-core.git test/bats
+git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
+git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
+```
 
 Once done, navigate to the `create-new-bash-scripts/src` folder and perform one of the following commands:
 
-`bats test.bats` \
-`../test/bats/bin/bats test.bats`
+```
+bats test.bats
+../test/bats/bin/bats test.bats
+```
 
 ![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/create-new-bash-scripts/bats.jpg)

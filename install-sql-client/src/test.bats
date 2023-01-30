@@ -15,21 +15,6 @@ setup() {
     run install-sql-client.sh
 }
 
-@test "run script silently with -r option" {
-    skip
-    run install-sql-client.sh -r
-}
-
-@test "run script silently with -u option" {
-    run install-sql-client.sh -u
-}
-
-@test "run script silently with -s option" {
-    skip
-    run install-sql-client.sh -s
-}
-
-@test "run script silently with -a option" {
-    skip
-    run install-sql-client.sh -a
+@test "script ran successfully" {
+    assert_success
 }

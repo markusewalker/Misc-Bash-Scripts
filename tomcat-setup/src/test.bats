@@ -16,23 +16,23 @@ setup() {
 }
 
 @test "check Tomcat was downloaded" {
-    RESULT="$HOME/apache-tomcat-9.0.56"
+    RESULT="$HOME/apache-tomcat-*"
     [ -d "$RESULT" ]
 }
 
 @test "check extracted file was removed" {
-    RESULT="$HOME/apache-tomcat-9.0.56.tar.gz"
+    RESULT="$HOME/apache-tomcat-*.tar.gz"
     [ ! -d "$RESULT" ]
 }
 
 @test "check to see if Tomcat manager is enabled" {
-    grep -i 'manager-gui' "$HOME/apache-tomcat-9.0.56/conf/tomcat-users.xml"
+    grep -i 'manager-gui' "$HOME/apache-tomcat-*/conf/tomcat-users.xml"
     RESULT=$?
     [ $RESULT -eq 0 ]
 }
 
 @test "verify pots are 80/443 in server.xml" {
-    grep -i 'Connector port="80"' "$HOME/apache-tomcat-9.0.56/conf/server.xml"
+    grep -i 'Connector port="80"' "$HOME/apache-tomcat-*/conf/server.xml"
     RESULT=$?
     [ $RESULT -eq 0 ]
 }

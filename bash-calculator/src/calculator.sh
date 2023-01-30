@@ -6,6 +6,13 @@
 # Description   : Simple calculator script written in Bash to perform the following operations: addition
 #		  subtraction, multiplication and division.
 
+choices() {
+	echo -e "1:\tAddition"
+	echo -e "2:\tSubtraction"
+	echo -e "3:\tMultiplication"
+	echo -e "4:\tDivision\n"
+}
+
 Addition() {
 	RESULT=$(echo "$A+$B" | bc -l)
 	echo -e "Sum of these two numbers is: ${RESULT}" 
@@ -29,16 +36,16 @@ Division() {
 usage() {
 	cat << EOF
 
-calculator.sh
+$(basename "$0")
 
 Simple calculator written in Bash that will perform the following operations:
 
-	- Addition
-	- Subtraction
-	- Multiplication
-	- Division
+   * Addition
+   * Subtraction
+   * Multiplication
+   * Division
 
-This script can be ran interactively, command-line arguments will be a functionality coming later.
+This script is ran interactively.
 
 USAGE: % ./$(basename "$0") [options]
 
@@ -67,26 +74,18 @@ done
 Main() {
 	echo -e "\x1B[96m==========================================="
 	echo -e "\tSimple Calculator Tool"
-	echo -e "===========================================\x1B[0m\n"
+	echo -e "===========================================\x1B[0m"
 
-	echo "Welcome to the Simple Calculator Tool! Please find below the supported operations:"
-	echo "	1 : Addition"
-	echo "	2 : Subtraction"
-	echo "	3 : Multiplication"
-	echo "	4 : Division"
-	echo ""
+	echo -e "Welcome to the Simple Calculator Tool! Please find the supported operations below:\n"
 
-	# Keep running the program so long as the user inputs yes
+	choices
+
 	INPUT="yes"
 	while [[ $INPUT = "yes" ]]
 	do
-		# Prompt the user for what operation they wish to do.
 		read -p "Enter an operation you want to do: " CHOICE
-
-		# Prompt user to enter in two numbers to complete the mathematical operation.
 		read -p "Enter in two numbers: " A B
 
-		# Depending on the user input, navigate to the appropriate operator function.
 		case $CHOICE in
 			1)
 			     Addition
@@ -106,18 +105,17 @@ Main() {
 
 		read -p "Do you want to continue? Enter 'yes' or 'no': " INPUT
 
-		if [[ $INPUT = "no" ]];
-		then
-			echo -e "\nThank you for using the Bash Calculator!"
+		[[ ${INPUT} = "no" ]] && echo -e "\nThank you for using the Bash Calculator!"
+		[[ ${INPUT} = "yes" ]] && choices && continue
 
-		elif [[ $INPUT = "yes" ]];
-		then
-			echo ""
-			continue
-		fi
+		while [[ ${INPUT} != "yes" ]] && [[ ${INPUT} != "no" ]]
+		do
+			read -p "Please enter 'yes' or 'no': " INPUT
+			
+			[[ ${INPUT} = "no" ]] && echo -e "\nThank you for using the Bash Calculator!"
+			[[ ${INPUT} = "yes" ]] && choices && continue
+		done
 	done
 }
 
 Main "$@"
-
-exit 0

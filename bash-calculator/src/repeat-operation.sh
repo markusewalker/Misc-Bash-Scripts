@@ -18,6 +18,9 @@ expect "Enter in two numbers:\r"
 send "65 7\r"
 
 expect "Do you want to continue? Enter 'yes' or 'no':\r"
+send "bogus\r"
+
+expect "Please enter 'yes' or 'no':\r"
 send "no\r"
 
 expect eof

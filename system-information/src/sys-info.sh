@@ -1,63 +1,62 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 4/8/22
+# Date Modified : 1/30/23
 
 # Description   : To display the current Linux distro following system information: hostname, disk space,
 #                 memory, uptime and active users.
 
-# Display hostname of the system.
-displayHostName() {
-    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** HOSTNAME INFORMATION ***${DEFAULT_COLOR}"
-    hostnamectl
-    echo ""
+choices() {
+    echo -e "\nSee the below options for displaying information about the system:"
+    echo -e "1:\t Display Hostname"
+    echo -e "2:\t Display Disk Space"
+    echo -e "3:\t Display Memory"
+    echo -e "4:\t Display Uptime"
+    echo -e "5:\t Display Active Users"
+    echo -e "6:\t Display all options\n"
 }
 
-# Display disk space usage of the system.
+displayHostName() {
+    echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** HOSTNAME INFORMATION ***${DEFAULT_COLOR}\n"
+    hostnamectl
+}
+
 displayDiskSpace() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** DISK SPACE USAGE ***${DEFAULT_COLOR}\n"
     df -h
-    echo ""
 }
 
-# Display free and used memory of the system.
 displayMemory() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** MEMORY USAGE ***${DEFAULT_COLOR}\n"
     free
-    echo ""
 }
 
-# Display uptime and load of the system.
 displayUpTime() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** SYSTEM UPTIME AND LOAD ***${DEFAULT_COLOR}\n"
     uptime
-    echo ""
 }
 
-# Display active users on the system.
 displayUsers() {
     echo -e "${FOREGROUND_COLOR}${BACKGROUND_COLOR}*** ACTIVE USERS ***${DEFAULT_COLOR}\n"
     who
-    echo ""
 }
 
 usage() {
     cat << EOF
 
-sys-info.sh
+$(basename "$0")
 
 Script that will display the system information including the following:
-    - Hostname
-    - Disk space
-    - Memory
-    - Uptime
-    - Active users
-    - All of the above
+    * Hostname
+    * Disk space
+    * Memory
+    * Uptime
+    * Active users
 
 USAGE: % ./$(basename "$0") [options]
 
 OPTIONS:
-    -h          -> Usage
+    -h      -> Usage
 
 EOF
 }
@@ -74,29 +73,21 @@ while getopts "h" opt; do
 done
 
 Main() {
-    echo -e "\x1B[96m================================================\n"
-    echo -e "\tDisplay System Information\n"
-    echo -e "================================================\x1B[0m\n"          
-    echo "This script displays information about the current system."
+    echo -e "\x1B[96m================================================"
+    echo -e "\tDisplay System Information"
+    echo -e "================================================\x1B[0m"          
+    echo -e "This script displays information about the current system."
     echo -e "---------------------------------------------------------"
 
-    # List options available to the user.
-    echo -e "\nSee the below options for displaying information about the system."
-    echo -e "(1):\t Display Hostname"
-    echo -e "(2):\t Display Disk Space"
-    echo -e "(3):\t Display Memory"
-    echo -e "(4):\t Display Uptime"
-    echo -e "(5):\t Display Active Users"
-    echo -e "(6):\t Display all options\n"
+    choices
 
     FOREGROUND_COLOR="\x1B[97m"
     BACKGROUND_COLOR="\x1B[104m"
     DEFAULT_COLOR="\x1B[0m"
 
     INPUT="yes"
-    while [[ ${INPUT} = "yes" ]]
+    while [[ "${INPUT}" = "yes" ]]
     do
-        # Prompt the user to choose an option.
         read -p "Please enter which option you would like to use: " CHOICE
 
         case ${CHOICE} in 
@@ -126,21 +117,19 @@ Main() {
                 echo -e "You must enter a number between 1-6 ONLY.\n";;
         esac
 
-        # Prompt user if they wish to continue running the script or end it.
         read -p "Do you want to continue? Enter 'yes' or 'no': " INPUT
 
-        if [[ ${INPUT} = "no" ]];
-        then
-            echo ""
+        [[ "${INPUT}" = "no" ]] && echo -e "\nThank you for using the script!"
+        [[ "${INPUT}" = "yes" ]] && choices && continue
 
-        elif [[ ${INPUT} = "yes" ]];
-        then    
-            echo ""
-            continue
-        fi
+        while [[ "${INPUT}" != "yes" ]] && [[ "${INPUT}" != "no" ]]
+        do
+            read -p "Please enter 'yes' or 'no': " INPUT
+            
+            [[ "${INPUT}" = "no" ]] && echo -e "\nThank you for using the script!"
+            [[ "${INPUT}" = "yes" ]] && choices && continue
+        done
     done
 }
 
 Main "$@"
-
-exit 0

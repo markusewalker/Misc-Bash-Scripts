@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 4/16/22
+# Date Modified : 1/30/23
 
 # Description   : To perform basic user management tasks such as adding a member, deleting a member, etc.
 
@@ -14,28 +14,34 @@ then
 	exit 1
 fi
 
-# Function to add a user and assign a password.
+choices() {
+	echo -e "\nChoose one of the options below:\n"
+	echo -e "\t1: Add User"
+	echo -e "\t2: Remove User"
+	echo -e "\t3: Create Group"
+	echo -e "\t4: Remove Group\n"
+}
+
 addUser() {
 	read -p "Enter in the name of the user to add: " NAME
 	useradd -m ${NAME}
 
-	# Check to see if this user will need sudo privilegs. If yes, assign to the sudo group. If not, disregard...
 	read -p "Will this user require sudo privileges ([yes] | no)?" SUDO
-	if [[ ${SUDO} = "yes" ]];
-	then
-		usermod -aG sudo ${NAME}
-		echo -e "Verifying if ${NAME} got added to the sudo group..."
-		groups ${NAME}
-	elif [[ ${SUDO} = "no" ]];
-	then
-		echo "${NAME} will not receive sudo privileges."
-	fi
+	[[ ${SUDO} = "yes" ]] && usermod -aG sudo ${NAME} && echo -e "Verifying if ${NAME} got added to the sudo group..." && groups ${NAME}
+	[[ ${SUDO} = "no" ]] && echo "${NAME} will not receive sudo privileges."
+	
+	while [[ ${SUDO} != "yes" ]] && [[ ${SUDO} != "no" ]];
+	do
+		read -p "Please enter in a valid option (yes | no): " SUDO
+
+		[[ ${SUDO} = "yes" ]] && usermod -aG sudo ${NAME} && echo -e "Verifying if ${NAME} got added to the sudo group..." && groups ${NAME}
+		[[ ${SUDO} = "no" ]] && echo "${NAME} will not receive sudo privileges."
+	done
 
 	echo -e "Setting password for ${NAME}..."
 	passwd ${NAME}
 }
 
-# Function to delete a specified user.
 delUser() {
 	read -p "Enter in the name of the user to delete: " NAME
 
@@ -46,11 +52,10 @@ delUser() {
 	userdel ${NAME}
 	rm -rf /home/${NAME}
 
-	echo -e "Verifying if user was removed from /etc/passwd. If so, should receive a blank line..."
+	echo -e "Verifying if user was removed from /etc/passwd..."
 	grep "^${NAME}" /etc/passwd
 }
 
-# Function to add a group.
 addGroup() {
 	read -p "Enter in the group name you wish to add: " GROUP
 	groupadd ${GROUP}
@@ -70,21 +75,14 @@ addGroup() {
 			echo -e "\nDo you want to add more members (yes | no)?"
 			read INPUT
 
-			if [[ ${INPUT} = "yes" ]];
-			then
-				continue
-			elif [[ ${INPUT} = "no" ]];
-			then
-				echo -e "\nExiting add group option."
-			fi
-
+			[[ "${INPUT}" = "yes" ]] && continue
+			[[ "${INPUT}" = "no" ]] && echo -e "\nExiting add group option."
 		done
 	elif [[ ${CHOICE} = "no" ]]; then
 		echo -e "\nAdding no users at this time."
 	fi
 }
 
-# Function to delete a group.
 delGroup() {
 	read -p "Please enter the group you wish to delete: " GROUP
 	echo -e "\nVerifying group exists..."
@@ -100,16 +98,16 @@ delGroup() {
 usage() {
 	cat << EOF
 
-user-management.sh
+$(basename "$0")
 
 This script performs basic user group and sysadmin tasks. The options are shown below:
 
-	- Adding Members
-	- Deleting Members
-	- Adding Groups
-	- Deleting Groups
+	* Adding Members
+	* Deleting Members
+	* Adding Groups
+	* Deleting Groups
 
-This script is interactive and provides basic checking & logic with each task that is specified.
+This script can be ran interactively or silently.
 
 USAGE: % ./$(basename "$0") [options]
 
@@ -172,12 +170,7 @@ Main() {
 		echo "This script performs basic user/group sysadmin tasks."
 		echo -e "--------------------------------------------------------"
 
-		# List available options.
-		echo -e "\nChoose one of the options below:"
-		echo " 1 : Add User"
-		echo " 2 : Remove User"
-		echo " 3 : Create Group"
-		echo -e " 4 : Remove Group\n"
+		choices
 
 		INPUT="yes"
 		while [[ ${INPUT} = "yes" ]]
@@ -203,14 +196,16 @@ Main() {
 
 			read -p "Do you want to continue ([yes] | no) the script? Please specify: " INPUT
 
-			if [[ ${INPUT} = "no" ]];
-			then
-				echo -e "Exiting tool.\n"
-			elif [[ ${INPUT} = "yes" ]];
-			then
-				echo ""
-				continue
-			fi
+			[[ ${INPUT} = "no" ]] && echo -e "\nThanks for using this script!"
+			[[ ${INPUT} = "yes" ]] && choices && continue
+
+			while [[ ${INPUT} != "yes" ]] && [[ ${INPUT} != "no" ]];
+			do
+				read -p "Please enter either yes or no: " INPUT
+
+				[[ ${INPUT} = "no" ]] && echo -e "\nThanks for using this script!"
+				[[ ${INPUT} = "yes" ]] && choices && continue
+			done
 		done
 	fi
 }

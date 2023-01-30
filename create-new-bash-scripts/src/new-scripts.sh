@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Authored by   : Markus Walker
-# Date Modified : 2/21/22
+# Date Modified : 1/30/23
 
 # Description   : To create new scripts and to make them executable upon creation.
 
@@ -11,17 +11,22 @@ NAME=""
 createScript() {
     touch ${NAME}.sh
     echo "#!/bin/bash" >> ${NAME}.sh
-    chmod +x $NAME.sh
+    chmod +x ${NAME}.sh
 
     echo -e "\nVerifying new script exists in this directory..."
-    ls -lart
-    echo ""
+    ls -lart | grep ${NAME}.sh
+
+    if [[ $? -eq 0 ]]; then
+        echo -e "\nNew script was created successfully!"
+    else
+        echo -e "\nNew script was not created successfully..."
+    fi
 }
 
 usage() {
 	cat << EOF
 
-new-scripts.sh
+$(basename "$0")
 
 Script that will create new Bash scripts based on the name you give it. That's it. That's
 the script. You can run this interactively or silently.
@@ -65,7 +70,7 @@ Main() {
     if [[ ${INTERACTIVE} = true ]]; then
         echo -e "\x1B[96m===================================="
         echo -e "\tCreate New Scripts"
-        echo -e "====================================\x1B[0m\n"
+        echo -e "====================================\x1B[0m"
 
         read -p "Enter in a new file name: " NAME
         createScript
@@ -75,5 +80,3 @@ Main() {
 }
 
 Main "$@"
-
-exit 0

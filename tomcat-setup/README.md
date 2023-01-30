@@ -6,12 +6,11 @@ Bash script to download and setup Tomcat. The Tomcat Setup utilizes functions to
 ### Getting Started
 To utilize this script, please follow the below workflow:
 
-(1) Clone the script into your environment.\
-(2) Make sure the script is executable using the command **"chmod +x setup-tomcat.sh"**.\
-(3) Navigate to the src folder and run the script: **./setup-tomcat.sh.**
+1. Clone the script into your environment.
+2. Make sure the script is executable using the command `chmod +x setup-tomcat.sh`.
+3. Navigate to the src folder and run the script: `./setup-tomcat.sh`.
 
-See below image of the script in action:
-
+### Usage Help
 ![Setting up Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/setup-tomcat.jpg)
 
 ### BATS Testing
@@ -21,14 +20,18 @@ If you choose to install BATS directly on your system, following this documentat
 
 In the `tomcat-setup` folder, run the following commands:
 
-`git init` (May not be needed...) \
-`git submodule add https://github.com/bats-core/bats-core.git test/bats`\
-`git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support`\
-`git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert`
+```
+git init
+git submodule add https://github.com/bats-core/bats-core.git test/bats
+git submodule add https://github.com/bats-core/bats-support.git test/test_helper/bats-support
+git submodule add https://github.com/bats-core/bats-assert.git test/test_helper/bats-assert
+```
 
 Once done, navigate to the `tomcat-setup/src` folder and perform one of the following commands:
 
-`bats test.bats` \
-`../test/bats/bin/bats test.bats`
+```
+bats test.bats
+../test/bats/bin/bats test.bats
+```
 
 ![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/bats.jpg)

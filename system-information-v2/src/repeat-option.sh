@@ -12,6 +12,9 @@ expect "Please enter which option you would like to use:\r"
 send "2\r"
 
 expect "Do you want to continue? Enter 'yes' or 'no':\r"
+send "bogus\r"
+
+expect "Please enter 'yes' or 'no':\r"
 send "no\r"
 
 expect eof

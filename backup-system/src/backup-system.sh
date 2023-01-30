@@ -1,15 +1,14 @@
 #!/bin/bash
 
 # Authored by	: Markus Walker
-# Date Modified : 2/21/22
+# Date Modified : 1/30/23
 
-# Description	: To backup the system to a mounted backup location and to run weekly on schedule.
+# Description	: To backup the system to a mounted backup location on a weekly basis.
 
 INTERACTIVE=true
 BACKUP_FILES=""
 DESTINATION=""
 
-# Perform quick error checking to verify that the user is running as root or with sudo privileges.
 if [[ $(id -u) != 0 ]];
 then
 	echo "ERROR. Please be sure that you are running as root or with sudo privileges!" 2>&1
@@ -17,16 +16,21 @@ then
 fi
 
 backup() {
-	# Backup the specified files.
 	tar -czvf ${DESTINATION}/${BACKUP_NAME} ${BACKUP_FILES}
-	echo ""
-	ls -lart ${DESTINATION}
+	echo -e "\nValidating backup..."
+	ls -lart ${DESTINATION} | grep ${BACKUP_NAME}
+
+	if [[ $? -eq 0 ]]; then
+		echo -e "\nBackup was successful!"
+	else
+		echo -e "\nBackup was unsuccessful..."
+	fi
 }
 
 usage() {
 	cat << EOF
 
-backup-system.sh
+$(basename "$0")
 
 Script that will backup files/folders that the user specifies. When specfiying a folder, use the syntax
 '/'. If backing up multiple folders, separate by a space. For example, '/home /usr /opt'.
@@ -73,16 +77,15 @@ while getopts "hb:d:" opt; do
 done
 
 Main() {
-	# Create backup filename.
 	DAY=$(date +%F)
 	BACKUP_NAME="${DAY}-backup.tar.gz"
 
 	if [[ "${INTERACTIVE}" = true ]]; then
 		echo -e "\x1B[96m==============================="
 		echo -e "\tBackup System"
-		echo -e "===============================\x1B[0m\n"
+		echo -e "===============================\x1B[0m"
 		
-		echo -e "The following script will backup files/folders that you specify. When backing up folders, use syntax '/'."
+		echo -e "The following script will backup files/folders that you specify. When backing up folders, use syntax '/'.\n"
 
 		read -p "Please enter in the directories that you wish to backup: " BACKUP_FILES
 		read -p "Please enter folder location the backup will be staged: " DESTINATION
@@ -91,10 +94,6 @@ Main() {
 	else
 		backup
 	fi
-
-	echo -e "\nSuccessfully completed backup!\n"
 }
 
 Main "$@"
-
-exit 0
