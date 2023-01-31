@@ -11,7 +11,7 @@ To utilize this script, please follow the below workflow:
 3. Run the script: `./sys-info.sh`.
 
 See below an image of the script in action:
-![Image of System Information](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information/sys-info.jpg)
+![Image of System Information](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/system-information/sys-info.jpg)
 
 ### BATS Testing
 Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the `test.bats` file.
@@ -34,4 +34,4 @@ bats test.bats
 ../test/bats/bin/bats test.bats
 ```
 
-![BATS Image](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information/bats.jpg)
+![BATS Image](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/system-information/bats.jpg)
