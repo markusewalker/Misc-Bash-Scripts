@@ -11,7 +11,7 @@ To utilize this script, please follow the below workflow:
 3. Navigate to the src folder and run the script: `./setup-tomcat.sh`.
 
 ### Usage Help
-![Setting up Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/setup-tomcat.jpg)
+![Setting up Tomcat](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/tomcat-setup/setup-tomcat.jpg)
 
 ### BATS Testing
 Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the test.bats file.
@@ -34,4 +34,4 @@ bats test.bats
 ../test/bats/bin/bats test.bats
 ```
 
-![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/tomcat-setup/bats.jpg)
+![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/tomcat-setup/bats.jpg)

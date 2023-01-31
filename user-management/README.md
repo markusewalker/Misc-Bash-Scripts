@@ -16,7 +16,7 @@ To utilize this script, please perform the following:
 3. Run the script: `./user-management.sh`. You must be the root user or have sudo privileges to run this script!
 
 ### Example
-![User Management Script Example](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/user-management/example.jpg)
+![User Management Script Example](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/user-management/example.jpg)
 
 ### BATS Testing
 Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the test.bats file.
@@ -39,5 +39,5 @@ sudo bats test.bats
 sudo ../test/bats/bin/bats test.bats
 ```
 
-![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/user-management/bats.jpg)
+![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/user-management/bats.jpg)
 

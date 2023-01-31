@@ -12,7 +12,7 @@ To utilize this script, please follow the below workflow:
 
 See below an image of the script in action:
 
-![Image of System information](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information-v2/sys-info-v2.jpg)
+![Image of System information](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/system-information-v2/sys-info-v2.jpg)
 
 ### BATS Testing
 Along with this script, you can perform unit testing using BATS (Bash Automated Testing System). In order to do this, you will need to ensure BATS is either installed on your system, or you directly invoke the test.bats file.
@@ -35,4 +35,4 @@ sudo bats test.bats
 sudo ../test/bats/bin/bats test.bats
 ```
 
-![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/master/system-information-v2/bats.jpg)
+![BATS Testing Result](https://github.com/markusewalker/Misc-Bash-Scripts/blob/main/system-information-v2/bats.jpg)
